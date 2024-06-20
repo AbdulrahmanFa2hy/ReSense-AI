@@ -78,17 +78,17 @@ h6 {
 .header {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 20px 0;
+  padding: 10px 0;
   transition: all 0.5s;
   z-index: 997;
 }
 
 .header .logo {
-  line-height: 1;
+  line-height: 0.5;
 }
 
 .header .logo img {
-  max-height: 50px;
+  max-height: 70px;
   margin-right: 8px;
 }
 
