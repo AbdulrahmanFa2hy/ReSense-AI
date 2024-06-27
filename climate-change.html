@@ -127,13 +127,13 @@
 
       <div class="container">
         <div class="row">
-          <div class="col-lg-8">
-            <!-- Blog Posts Section -->
-            <section id="blog-posts" class="blog-posts section">
-              <div class="container"></div>
-            </section>
-            <!-- /Blog Posts Section -->
-          </div>
+          <div class="col-lg-8" id="climate-line-chart"></div>
+          <div
+            class="col-lg-4 d-flex justify-content-center align-items-center"
+            id="climate-pie-chart"
+          ></div>
+          <div class="col-lg-6" id="climate-basic-line-chart"></div>
+          <div class="col-lg-6" id="climate-bar-chart"></div>
         </div>
       </div>
     </main>
@@ -167,6 +167,8 @@
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
     <!-- Main JS File -->
-    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="assets/js/main.js" type="module"></script>
+    <script src="assets/js/climate-charts.js" type="module"></script>
   </body>
 </html>
