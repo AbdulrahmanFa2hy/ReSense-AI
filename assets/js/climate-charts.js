@@ -4,7 +4,8 @@
 var options = {
   series: [
     {
-      data: ["10000", 20000, 30000, 40000, 50000, 60000, 70000, 80000],
+      name: "Temp",
+      data: [10000, 20000, 30000, 42550, 50000, 60000, 70000, 80000],
     },
   ],
   chart: {
@@ -123,7 +124,7 @@ var options = {
       enabled: false,
     },
     toolbar: {
-      show: false,
+      show: true,
     },
   },
   colors: ["#77B6EA", "#545454"],
@@ -164,7 +165,7 @@ var options = {
     position: "top",
     horizontalAlign: "right",
     floating: true,
-    offsetY: -25,
+    offsetY: -10,
     offsetX: -5,
   },
 };
@@ -181,18 +182,18 @@ lineChart.render();
 // ###################################################
 // Start Pie Chart //
 var options = {
-  series: [44, 55, 13, 43, 22],
+  series: [50, 55, 25],
   chart: {
     width: 380,
     type: "pie",
   },
-  labels: ["Team A", "Team B", "Team C", "Team D", "Team E"],
+  labels: ["Team A", "Team B", "Team C"],
   responsive: [
     {
-      breakpoint: 480,
+      breakpoint: 400,
       options: {
         chart: {
-          width: 200,
+          width: "100%",
         },
         legend: {
           position: "bottom",
