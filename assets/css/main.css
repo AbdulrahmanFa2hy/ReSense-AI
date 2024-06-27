@@ -84,11 +84,11 @@ h6 {
 }
 
 .header .logo {
-  line-height: 0.5;
+  line-height: 1;
 }
 
 .header .logo img {
-  max-height: 70px;
+  max-height: 55px;
   margin-right: 8px;
 }
 
@@ -743,6 +743,20 @@ h6 {
 .page-title .heading h1 {
   font-size: 38px;
   font-weight: 700;
+}
+.page-title .heading .issue {
+  text-align: left;
+}
+.page-title .heading .issue h4 {
+  margin-top: 30px;
+}
+.page-title .heading .issue ul li {
+  max-width: 700px;
+  text-align: justify;
+  margin-bottom: 30px;
+}
+.page-title .heading .issue ul li h6 {
+  display: inline-block;
 }
 
 .page-title nav {
