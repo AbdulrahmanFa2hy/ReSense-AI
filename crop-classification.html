@@ -138,14 +138,15 @@
       <!-- End Page Title -->
 
       <div class="container">
-        <div class="row">
-          <div class="col-lg-8">
-            <!-- Blog Posts Section -->
-            <section id="blog-posts" class="blog-posts section">
-              <div class="container"></div>
-            </section>
-            <!-- /Blog Posts Section -->
-          </div>
+        <div class="row" style="height: 500px">
+          <!-- <div class="col-lg-8" id="map"></div> -->
+          <!-- <iframe
+            src="https://api.mapbox.com/styles/v1/mapbox/streets-v12.html?title=true&zoomwheel=false&access_token=YOUR_MAPBOX_ACCESS_TOKEN#15/37.771/-122.436/45/70"
+            sandbox="allow-same-origin allow-scripts allow-popups"
+            frameborder="0"
+            width="100%"
+            height="600"
+          ></iframe> -->
         </div>
       </div>
     </main>
@@ -180,5 +181,9 @@
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+    <script type="module" src="./assets/js/crop-classificatoin.js"></script>
+    <!-- prettier-ignore -->
+    <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+      ({key: "AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg", v: "weekly"});</script>
   </body>
 </html>
