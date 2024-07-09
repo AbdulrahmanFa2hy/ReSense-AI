@@ -47,6 +47,118 @@
 
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
+
+    <!-- leaflet -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+      .container {
+        padding-top: 50px;
+        padding-bottom: 20px;
+      }
+      #map {
+        width: 100%;
+        height: 85vh;
+        margin: auto;
+        border-radius: 4px;
+        box-shadow: 0px 0px 16px #012970;
+        z-index: 1;
+      }
+      #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 50px auto 0;
+        max-width: 80%;
+      }
+      .attention {
+        text-align: justify;
+      }
+      #form {
+        width: 50%;
+        margin-bottom: 20px;
+      }
+      #form label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      #form input,
+      #form select {
+        margin-bottom: 10px;
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .phone-row {
+        display: flex;
+        gap: 10px;
+      }
+      #countryCode {
+        flex: 1;
+      }
+      #phone {
+        flex: 3;
+      }
+      #buttons {
+        width: 50%;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        gap: 10px;
+      }
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .email-button {
+        background: linear-gradient(135deg, #1e90ff, #6495ed);
+        color: white;
+      }
+      .whatsapp-button {
+        background-color: #25d366;
+        color: white;
+      }
+      .button img {
+        margin-right: 10px;
+      }
+      @media (max-width: 768px) {
+        #form,
+        #buttons {
+          width: 100%;
+        }
+      }
+    </style>
   </head>
 
   <body class="blog-page">
@@ -138,15 +250,53 @@
       <!-- End Page Title -->
 
       <div class="container">
-        <div class="row" style="height: 500px">
-          <!-- <div class="col-lg-8" id="map"></div> -->
-          <!-- <iframe
-            src="https://api.mapbox.com/styles/v1/mapbox/streets-v12.html?title=true&zoomwheel=false&access_token=YOUR_MAPBOX_ACCESS_TOKEN#15/37.771/-122.436/45/70"
-            sandbox="allow-same-origin allow-scripts allow-popups"
-            frameborder="0"
-            width="100%"
-            height="600"
-          ></iframe> -->
+        <div id="map"></div>
+        <div id="container">
+          <form id="form">
+            <label for="email">Your Email:</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your email"
+              required
+            />
+            <div class="phone-row">
+              <select id="countryCode">
+                <!-- Country options will be populated here by JavaScript -->
+              </select>
+              <input
+                type="tel"
+                id="phone"
+                placeholder="Enter your phone number"
+                required
+              />
+            </div>
+            <label for="crop">Crop Type:</label>
+            <select id="crop">
+              <option value="Wheat">Wheat</option>
+              <option value="Corn">Corn</option>
+              <option value="Cotton">Cotton</option>
+            </select>
+            <p class="attention">
+              Please ensure that you fill out the input fields correctly, as the
+              response will be sent to you using the provided email and phone
+              number.
+            </p>
+          </form>
+          <div id="buttons">
+            <button id="sendEmail" class="button email-button">
+              <i class="bi bi-envelope" style="margin-right: 10px"></i>
+              Send Request via Email
+            </button>
+            <button
+              id="sendWhatsApp"
+              class="button whatsapp-button"
+              target="_blank"
+            >
+              <i class="bi bi-whatsapp" style="margin-right: 10px"></i>
+              Send Request via WhatsApp
+            </button>
+          </div>
         </div>
       </div>
     </main>
@@ -169,6 +319,7 @@
       ><i class="bi bi-arrow-up-short"></i
     ></a>
 
+    <script type="module" src="./assets/js/crop-classificatoin.js"></script>
     <!-- Vendor JS Files -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/php-email-form/validate.js"></script>
