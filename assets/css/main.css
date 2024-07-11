@@ -2870,3 +2870,12 @@ section,
     padding: 10px 0;
   }
 }
+/* Hide dropdown menu by default */
+.dropdown-menu {
+  display: none;
+}
+
+/* Show dropdown menu on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
