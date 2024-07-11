@@ -233,3 +233,51 @@ heroP.addEventListener("click", () => {
     showConfirmButton: false,
   });
 });
+
+(function () {
+  emailjs.init("TU70aafdCjvaCj-zl");
+})();
+
+function sendEmail(event) {
+  event.preventDefault();
+
+  const serviceID = "service_oe8h1cj";
+  const templateID = "template_xqwd32u";
+
+  const name = document.querySelector('input[name="name"]').value;
+  const email = document.querySelector('input[name="email"]').value;
+  const subject = document.querySelector('input[name="subject"]').value;
+  const message = document.querySelector('textarea[name="message"]').value;
+
+  const templateParams = {
+    name,
+    email,
+    subject,
+    message,
+  };
+
+  if (name && email && subject && message) {
+    emailjs.send(serviceID, templateID, templateParams).then(
+      () => {
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Your message has been sent. Thank you!",
+        });
+      },
+      (err) => {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Failed to send message. Please try again later.",
+        });
+      }
+    );
+  } else {
+    Swal.fire({
+      icon: "warning",
+      title: "Incomplete Form",
+      text: "Please fill out all fields before submitting.",
+    });
+  }
+}

@@ -66,14 +66,16 @@
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
 
-    <!-- =======================================================
-  * Template Name: FlexStart
-  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
-  * Updated: Jun 14 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+      .loading,
+      .error-message,
+      .sent-message {
+        display: none;
+      }
+    </style>
   </head>
 
   <body class="index-page">
@@ -854,11 +856,10 @@
 
             <div class="col-lg-9">
               <form
-                action="forms/contact.php"
-                method="post"
                 class="php-email-form"
                 data-aos="fade-up"
                 data-aos-delay="200"
+                onsubmit="sendEmail(event)"
               >
                 <div class="row gy-4">
                   <div class="col-md-6">
@@ -867,7 +868,7 @@
                       name="name"
                       class="form-control"
                       placeholder="Your Name"
-                      required=""
+                      required
                     />
                   </div>
 
@@ -877,7 +878,7 @@
                       class="form-control"
                       name="email"
                       placeholder="Your Email"
-                      required=""
+                      required
                     />
                   </div>
 
@@ -887,7 +888,7 @@
                       class="form-control"
                       name="subject"
                       placeholder="Subject"
-                      required=""
+                      required
                     />
                   </div>
 
@@ -897,17 +898,11 @@
                       name="message"
                       rows="6"
                       placeholder="Message"
-                      required=""
+                      required
                     ></textarea>
                   </div>
 
                   <div class="col-md-12 text-center">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">
-                      Your message has been sent. Thank you!
-                    </div>
-
                     <button type="submit">Send Message</button>
                   </div>
                 </div>
