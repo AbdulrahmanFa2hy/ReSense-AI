@@ -5,7 +5,7 @@ var options = {
   series: [
     {
       name: "Temp",
-      data: [10000, 20000, 30000, 42550, 50000, 60000, 70000, 80000],
+      data: [7.9, 7.1, 8, 7.55, 7.55, 7.3],
     },
   ],
   chart: {
@@ -33,10 +33,10 @@ var options = {
     },
   },
   dataLabels: {
-    enabled: true,
+    enabled: false,
   },
   xaxis: {
-    categories: [2018, 2019, 2020, 2021, 2022, 2023],
+    categories: ["2018", "2019", "2020", "2021", "2022", "2023"],
   },
 };
 
@@ -55,7 +55,7 @@ var options = {
   series: [
     {
       name: "Desktops",
-      data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
+      data: ["24", "23", "22", "23.8", "21", "14", "18", "16"],
     },
   ],
   chart: {
@@ -82,7 +82,7 @@ var options = {
     },
   },
   xaxis: {
-    categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
+    categories: ["2018", "2019", "2020", "2021", "2022", "2023", "2024"],
   },
 };
 
@@ -101,11 +101,11 @@ basicLineChart.render();
 var options = {
   series: [
     {
-      name: "High - 2013",
+      // name: "High - 2013",
       data: [28, 29, 33, 36, 32, 32, 33],
     },
     {
-      name: "Low - 2013",
+      // name: "Low - 2013",
       data: [12, 11, 14, 18, 17, 13, 13],
     },
   ],
@@ -135,7 +135,7 @@ var options = {
     curve: "smooth",
   },
   title: {
-    text: "Average High & Low Temperature",
+    text: "Temperature Forcasat",
     align: "left",
   },
   grid: {
@@ -149,7 +149,7 @@ var options = {
     size: 1,
   },
   xaxis: {
-    categories: [2018, 2019, 2020, 2021, 2022, 2023],
+    categories: [2018, 2019, 2020, 2021, 2022, 2023, 2024],
     title: {
       text: "Year",
     },
@@ -187,7 +187,7 @@ var options = {
     width: 380,
     type: "pie",
   },
-  labels: ["Team A", "Team B", "Team C"],
+  labels: ["Temperature Q1", "Temperature Q2", "Temperature Q3"],
   responsive: [
     {
       breakpoint: 400,

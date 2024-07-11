@@ -14,6 +14,49 @@ var map = L.map("map", {
   // maxZoom: 16,
 });
 
+// const popup = L.popup()
+//   .setLatLng([37.7749, -122.4194]) // Coordinates where the popup should appear
+//   .setContent(
+//     "<p>Welcome to the map!<br>Use the drawing tools to draw shapes and then send the data.</p>"
+//   )
+//   .openOn(map);
+
+// Custom control for start message
+// var startMessageControl = L.Control.extend({
+//   options: {
+//     position: "topright", // 'topleft', 'topright', 'bottomleft' or 'bottomright'
+//   },
+
+//   onAdd: function (map) {
+//     var container = L.DomUtil.create("div", "custom-control");
+//     container.innerHTML =
+//       "<h4>Welcome to the Map!</h4><p>Use the tools to draw shapes and send your data.</p>";
+//     return container;
+//   },
+// });
+
+// Add the control to the map
+// map.addControl(new startMessageControl());
+
+// Create the start message element
+var startMessage = L.DomUtil.create("div", "custom-control");
+startMessage.innerHTML =
+  "<h4>Draw a polygon over the area for crop detection</h4> <p>Only the selected area will be analyzed</p>";
+
+// Append the start message to the map container
+document.getElementById("map").appendChild(startMessage);
+
+// Function to remove the start message
+function removeStartMessage() {
+  if (startMessage) {
+    startMessage.remove();
+    map.off("click", removeStartMessage);
+  }
+}
+
+// Add click event listener to the map
+map.on("click", removeStartMessage);
+
 var baseMaps = {
   Streets: L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"),
   "Imagery Hybrid": L.tileLayer(

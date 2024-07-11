@@ -2838,7 +2838,20 @@ section,
 
 #map {
   height: 100dvh;
+  position: relative;
 }
+.custom-control {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  text-align: center;
+}
+
 .img-icon {
   width: 19px;
   height: 19px;
