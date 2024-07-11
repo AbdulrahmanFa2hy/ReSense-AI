@@ -2848,3 +2848,25 @@ section,
 .img-icon:hover {
   opacity: 1;
 }
+#hero-p {
+  transition: 0.5s ease;
+  opacity: 0.9;
+}
+#hero-p:hover {
+  transform: scale(1.016);
+  opacity: 1;
+}
+.custom-swal-width {
+  width: 70%;
+  font-size: 0.8rem;
+  color: #7c797b;
+  padding: 30px 0;
+}
+
+@media (max-width: 670px) {
+  .custom-swal-width {
+    width: 100%;
+    font-size: 0.5rem;
+    padding: 10px 0;
+  }
+}

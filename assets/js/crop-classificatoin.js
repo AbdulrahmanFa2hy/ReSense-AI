@@ -42,7 +42,7 @@ var drawControl = new L.Control.Draw({
     polygon: true,
     rectangle: true,
     polyline: false,
-    circle: false,
+    circle: true,
     circlemarker: false,
     marker: false,
   },

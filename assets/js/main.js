@@ -1,5 +1,3 @@
-// import ApexCharts from "apexcharts";
-
 (function () {
   "use strict";
 
@@ -224,3 +222,14 @@
   window.addEventListener("load", navmenuScrollspy);
   document.addEventListener("scroll", navmenuScrollspy);
 })();
+
+let heroP = document.getElementById("hero-p");
+heroP.addEventListener("click", () => {
+  Swal.fire({
+    title: `We specialize in developing proprietary AI models for climate change prediction, crop classification, and soil moisture analysis. By integrating Long Short-Term Memory (LSTM) networks for climate forecasting and separate models for crop and soil Characteristics analysis, we provide comprehensive insights to inform preplanting decisions and identify optimal agricultural areas. 
+    
+    Our platform offers a graphical user interface (GUI) on a website, enabling easy access to crucial data for authorities and farm owners. This facilitates informed decision-making, aiming to boost the production of crops such as rice and wheat, and address food security challenges in Egypt`,
+    customClass: "custom-swal-width",
+    showConfirmButton: false,
+  });
+});
