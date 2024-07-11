@@ -11,19 +11,21 @@ var map = L.map("map", {
   ],
   maxBoundsViscosity: 1.0,
   minZoom: 4,
-  maxZoom: 9,
+  // maxZoom: 16,
 });
 
 var baseMaps = {
-  Streets: L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 19,
-  }),
-  Imagery: L.tileLayer(
-    "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-    { maxZoom: 19 }
+  Streets: L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"),
+  "Imagery Hybrid": L.tileLayer(
+    "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+    {
+      // maxZoom: 19,
+      subdomains: ["mt0", "mt1", "mt2", "mt3"],
+    }
   ),
   Topographic: L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", {
-    maxZoom: 17,
+    // maxZoom: 17,
+    subdomains: ["a", "b", "c"],
   }),
 };
 
