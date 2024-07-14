@@ -1,7 +1,10 @@
+// this code explain the Java Script part for the crop classification page
+// initialize the EmailJs to receive the data input from users
 (function () {
   emailjs.init("TU70aafdCjvaCj-zl");
 })();
 
+// create map using Leaflet
 var map = L.map("map", {
   center: [37.8, -96],
   zoom: 6,
@@ -11,42 +14,17 @@ var map = L.map("map", {
   ],
   maxBoundsViscosity: 1.0,
   minZoom: 4,
-  // maxZoom: 16,
 });
 
-// const popup = L.popup()
-//   .setLatLng([37.7749, -122.4194]) // Coordinates where the popup should appear
-//   .setContent(
-//     "<p>Welcome to the map!<br>Use the drawing tools to draw shapes and then send the data.</p>"
-//   )
-//   .openOn(map);
-
-// Custom control for start message
-// var startMessageControl = L.Control.extend({
-//   options: {
-//     position: "topright", // 'topleft', 'topright', 'bottomleft' or 'bottomright'
-//   },
-
-//   onAdd: function (map) {
-//     var container = L.DomUtil.create("div", "custom-control");
-//     container.innerHTML =
-//       "<h4>Welcome to the Map!</h4><p>Use the tools to draw shapes and send your data.</p>";
-//     return container;
-//   },
-// });
-
-// Add the control to the map
-// map.addControl(new startMessageControl());
-
-// Create the start message element
+// Create the start message on the map
 var startMessage = L.DomUtil.create("div", "custom-control");
 startMessage.innerHTML =
-  "<h4>Draw a polygon over the area for crop detection</h4> <p>Only the selected area will be analyzed</p>";
+  "<h4>Draw a polygon to detect crops</h4> <p>Only the selected area will be analyzed</p>";
 
 // Append the start message to the map container
 document.getElementById("map").appendChild(startMessage);
 
-// Function to remove the start message
+// remove the start message on click
 function removeStartMessage() {
   if (startMessage) {
     startMessage.remove();
@@ -57,17 +35,16 @@ function removeStartMessage() {
 // Add click event listener to the map
 map.on("click", removeStartMessage);
 
+// set the three base map layers [Streets, Imagery Hybrid, Topographic]
 var baseMaps = {
   Streets: L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"),
   "Imagery Hybrid": L.tileLayer(
     "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
     {
-      // maxZoom: 19,
       subdomains: ["mt0", "mt1", "mt2", "mt3"],
     }
   ),
   Topographic: L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", {
-    // maxZoom: 17,
     subdomains: ["a", "b", "c"],
   }),
 };
@@ -83,6 +60,7 @@ var drawControl = new L.Control.Draw({
   edit: {
     featureGroup: drawnItems,
   },
+  // set the options to draw on the map
   draw: {
     polygon: true,
     rectangle: true,
@@ -102,20 +80,32 @@ map.on(L.Draw.Event.CREATED, function (event) {
   }, 100);
 });
 
+// Automatically scroll to the bottom of the container after a user draws a polygon on the map
+map.on(L.Draw.Event.CREATED, function (event) {
+  var layer = event.layer;
+  drawnItems.addLayer(layer);
+  setTimeout(() => {
+    document.getElementById("container").scrollIntoView({ behavior: "smooth" });
+  }, 100);
+});
+
+// check if email and phone number is valid
 function validateEmail(email) {
   var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);
 }
-
 function validatePhoneNumber(phone) {
   var re = /^[0-9]+$/;
   return re.test(phone);
 }
 
+// send inputs data from users to our support team
 function sendData(method) {
   var email = document.getElementById("email").value;
   var countryCode = document.getElementById("countryCode").value;
   var phone = document.getElementById("phone").value;
+
+  // throw an error if the email or phone number are not valid
   if (!validateEmail(email)) {
     Swal.fire("Error", "Please enter a valid email address.", "error");
     return;
@@ -124,10 +114,14 @@ function sendData(method) {
     Swal.fire("Error", "Please enter a valid phone number.", "error");
     return;
   }
+
+  // get the chosen crop type
   var crop = document.getElementById("crop").value;
+  // get the drawn polygon and transform it from js object to json data
   var data = drawnItems.toGeoJSON();
   var jsonData = JSON.stringify(data, null, 2);
 
+  // set the template of email to receive the data formatted
   var subject = `GeoJSON Data for ${crop}`;
   var body = `User Email: ${email}\nUser Phone: ${countryCode}${phone}\n\nCrop Type: ${crop}\n\nGeoJSON Data:\n${jsonData}`;
 
@@ -154,7 +148,10 @@ function sendData(method) {
       }
     );
   } else if (method === "whatsapp") {
+    // set our number through which the customer will contact us
     var phoneNumber = "+201009415688";
+
+    // collect the data in one formatted message and send it on whatsapp
     var message = `User Email: ${email}\nUser Phone: ${countryCode} ${phone}\n\nCrop Type: ${crop}\n\nGeoJSON Data:\n${jsonData}`;
     window.open(
       `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
@@ -165,6 +162,7 @@ function sendData(method) {
   }
 }
 
+// create a list for country code number
 const countryOptions = [
   { id: "+20", text: "Egypt (+20)" },
   { id: "+966", text: "Saudi Arabia (+966)" },
@@ -179,6 +177,7 @@ const countryOptions = [
 ];
 
 const countryCodeSelect = document.getElementById("countryCode");
+// iterate over the country code number and add them into a drop list with the value of each one
 countryOptions.forEach((option) => {
   const opt = document.createElement("option");
   opt.value = option.id;
@@ -187,18 +186,12 @@ countryOptions.forEach((option) => {
 });
 countryCodeSelect.value = "+20"; // Default to Egypt
 
+// send data when click email button
 document.getElementById("sendEmail").onclick = function () {
   sendData("email");
 };
 
+// send data when click whatsapp button
 document.getElementById("sendWhatsApp").onclick = function () {
   sendData("whatsapp");
 };
-
-map.on(L.Draw.Event.CREATED, function (event) {
-  var layer = event.layer;
-  drawnItems.addLayer(layer);
-  setTimeout(() => {
-    document.getElementById("container").scrollIntoView({ behavior: "smooth" });
-  }, 100);
-});

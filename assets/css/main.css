@@ -2892,3 +2892,32 @@ section,
 .nav-item.dropdown:hover .dropdown-menu {
   display: block;
 }
+
+/* Webkit Browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 14px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f2f5fc; /* Background of the scrollbar track */
+  border-radius: 5px; /* Rounded corners for the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  height: 14%;
+  background: linear-gradient(
+    190deg,
+    #5d6df3 50%,
+    #013082 100%
+  ); /* Gradient color for the scrollbar thumb */
+  border-radius: 8px; /* Rounded corners for the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    150deg,
+    #02348b 0%,
+    #5d6df3 100%
+  ); /* Darker gradient on hover */
+}
