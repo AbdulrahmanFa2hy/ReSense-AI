@@ -2895,16 +2895,15 @@ section,
 
 /* Webkit Browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
-  width: 14px; /* Width of the scrollbar */
+  width: 8px; /* Width of the scrollbar */
 }
 
 ::-webkit-scrollbar-track {
   background: #f2f5fc; /* Background of the scrollbar track */
-  border-radius: 5px; /* Rounded corners for the scrollbar track */
+  /* border-radius: 5px; Rounded corners for the scrollbar track */
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 5px;
   height: 14%;
   background: linear-gradient(
     190deg,
@@ -2920,4 +2919,16 @@ section,
     #02348b 0%,
     #5d6df3 100%
   ); /* Darker gradient on hover */
+}
+
+.circle {
+  height: 24px;
+  width: 24px;
+  border-radius: 24px;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999999; /* so that it stays on top of all other elements */
 }
