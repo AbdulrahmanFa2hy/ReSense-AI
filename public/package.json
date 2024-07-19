@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "apexcharts": "^3.49.2",
+    "sweetalert2": "^11.12.2"
+  }
+}

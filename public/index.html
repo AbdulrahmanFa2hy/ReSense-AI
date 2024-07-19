@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>ReSense AI</title>
+    <meta
+      content="Boosting Egypt's agricultural productivity with advanced AI for climate prediction, crop classification, and soil Characteristics analysis."
+      name="description"
+    />
+    <meta
+      content="climate prediction, crop classification, soil Characteristics"
+      name="keywords"
+    />
+    <meta
+      property="og:image"
+      content="https://resenseai.netlify.app/assets/img/logo.png"
+    />
+    <meta property="og:url" content="https://resenseai.netlify.app" />
+    <meta property="og:title" content="ReSense AI" />
+    <meta
+      property="og:description"
+      content="Boosting Egypt's agricultural productivity with advanced AI for climate prediction, crop classification, and soil Characteristics analysis."
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- Favicons -->
+    <link
+      href="assets/img/logo.png"
+      sizes="16x16 32x32 48x48 64x64"
+      rel="icon"
+    />
+    <link href="assets/img/logo.png" rel="apple-touch-icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    /> -->
+    <script
+      src="https://kit.fontawesome.com/178e567442.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+      .loading,
+      .error-message,
+      .sent-message {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body class="index-page">
+    <header id="header" class="header d-flex align-items-center fixed-top">
+      <div
+        class="container-fluid container-xl position-relative d-flex align-items-center"
+      >
+        <a href="index.html" class="logo d-flex align-items-center me-auto">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <div class="d-flex align-items-center">
+            <img src="assets/img/logo.png" alt="" />
+            <h1 class="sitename" style="text-wrap: nowrap">ReSense AI</h1>
+          </div>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li>
+              <a href="#hero" class="active">Home<br /></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#services"
+                id="navbarDropdown"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Services
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="climate-change.html"
+                  >Climate Change</a
+                >
+                <a class="dropdown-item" href="soil-characteristic.html"
+                  >Soil Characteristics</a
+                >
+                <a class="dropdown-item" href="crop-classification.html"
+                  >Crop Classification</a
+                >
+              </div>
+            </li>
+
+            <li><a href="#team">Team</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <a class="btn-getstarted flex-md-shrink-0" href="index.html#services"
+          >Get Started</a
+        >
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- Hero Section -->
+      <section id="hero" class="hero section">
+        <div class="container">
+          <div class="row gy-4">
+            <div
+              class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center"
+            >
+              <h2 data-aos="fade-up">
+                We offer advanced AI solutions to enhance agricultural
+                productivity
+              </h2>
+              <p
+                data-aos="fade-up"
+                data-aos-delay="100"
+                id="hero-p"
+                style="cursor: pointer"
+                title="Read more"
+              >
+                Our innovative approach focuses on optimizing resource
+                utilization and maximizing agricultural yields through advanced
+                AI techniques.
+              </p>
+              <div
+                class="d-flex flex-column flex-md-row"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                <a href="#services" class="btn-get-started"
+                  >Get Started <i class="bi bi-arrow-right"></i
+                ></a>
+                <!-- <a
+                  href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
+                  class="glightbox btn-watch-video d-flex align-items-center justify-content-center ms-0 ms-md-4 mt-4 mt-md-0"
+                  ><i class="bi bi-play-circle"></i><span>Watch Video</span></a
+                > -->
+              </div>
+            </div>
+            <div
+              class="col-lg-6 order-1 order-lg-2 hero-img"
+              data-aos="zoom-out"
+            >
+              <img
+                src="assets/img/hero-img.png"
+                class="img-fluid animated"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Hero Section -->
+
+      <!-- Services Section -->
+      <section id="services" class="services section">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Services</h2>
+          <p>Check Our Services<br /></p>
+        </div>
+        <!-- End Section Title -->
+
+        <div class="container">
+          <div class="row gy-4">
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="service-item item-cyan position-relative">
+                <!-- <i class="bi bi-activity icon"></i> -->
+                <i class="bi bi-cloud-sun icon"></i>
+                <h3>Climate Change</h3>
+                <p>
+                  Issue: Climate change induces erratic weather patterns and
+                  extreme events, profoundly impacting crop productivity and
+                  agricultural operations.
+                </p>
+                <a href="climate-change.html" class="read-more stretched-link"
+                  ><span>Read More</span> <i class="bi bi-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+            <!-- End Service Item -->
+
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="service-item item-orange position-relative">
+                <!-- <i class="bi bi-card-checklist icon"></i> -->
+                <!-- <i class="bi bi-card-text icon"></i> -->
+                <!-- <i class="bi bi-credit-card-2-front icon"></i> -->
+                <!-- <i class="bi bi-columns-gap icon"></i> -->
+                <i class="bi bi-layout-wtf icon"></i>
+                <!-- <i class="bi bi-qr-code-scan icon"></i> -->
+                <h3>Soil Characteristics</h3>
+                <p>
+                  Issue: Poor soil health and mismanagement lead to decreased
+                  agricultural yields
+                </p>
+                <a
+                  href="soil-characteristic.html"
+                  class="read-more stretched-link"
+                  ><span>Read More</span> <i class="bi bi-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+            <!-- End Service Item -->
+
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div class="service-item item-teal position-relative">
+                <i class="bi bi-diagram-3 icon"></i>
+                <h3>Crop Classification</h3>
+                <p>
+                  Issue: Accurate classification and monitoring of crops are
+                  essential for efficient agricultural planning and management.
+                </p>
+                <a
+                  href="crop-classification.html"
+                  class="read-more stretched-link"
+                  ><span>Read More</span> <i class="bi bi-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+            <!-- End Service Item -->
+          </div>
+        </div>
+      </section>
+      <!-- /Services Section -->
+
+      <!-- Values Section -->
+      <section id="values" class="values section">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Our Values</h2>
+          <p>What we value most<br /></p>
+        </div>
+        <!-- End Section Title -->
+
+        <div class="container">
+          <div class="row gy-4">
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+              <div class="card">
+                <img src="assets/img/values-1.png" class="img-fluid" alt="" />
+                <h3>Innovative AI Solutions</h3>
+                <p>
+                  We are dedicated to leveraging advanced AI techniques to
+                  predict climate changes, classify crops, and analyze soil
+                  moisture. Our innovative approach aims to enhance resource
+                  utilization and maximize agricultural yields.
+                </p>
+              </div>
+            </div>
+            <!-- End Card Item -->
+
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+              <div class="card">
+                <img src="assets/img/values-2.png" class="img-fluid" alt="" />
+                <h3>Data-Driven Decisions</h3>
+                <p>
+                  Our AI models provide comprehensive insights that inform
+                  preplanting decisions and identify optimal agricultural areas.
+                  By integrating climate, crop, and soil data, we help boost
+                  agricultural productivity and efficiency.
+                </p>
+              </div>
+            </div>
+            <!-- End Card Item -->
+
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+              <div class="card">
+                <img src="assets/img/values-3.png" class="img-fluid" alt="" />
+                <h3>Empowering Agriculture</h3>
+                <p>
+                  Through our user-friendly graphical interface, we provide
+                  crucial data to authorities and farm owners. This enables
+                  informed decision-making, aiming to enhance the production of
+                  crops like rice and wheat, and address food security
+                  challenges
+                </p>
+              </div>
+            </div>
+            <!-- End Card Item -->
+          </div>
+        </div>
+      </section>
+      <!-- /Values Section -->
+
+      <!-- Features Section -->
+      <section id="features" class="features section">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Features</h2>
+          <p>Our Advanced Features<br /></p>
+        </div>
+        <!-- End Section Title -->
+
+        <div class="container">
+          <div class="row gy-5">
+            <div class="col-xl-6" data-aos="zoom-out" data-aos-delay="100">
+              <img src="assets/img/features.png" class="img-fluid" alt="" />
+            </div>
+
+            <div class="col-xl-6 d-flex">
+              <div class="row align-self-center gy-4">
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                  <div class="feature-box d-flex align-items-center">
+                    <i class="bi bi-check"></i>
+                    <h3>Climate Prediction</h3>
+                  </div>
+                </div>
+                <!-- End Feature Item -->
+
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                  <div class="feature-box d-flex align-items-center">
+                    <i class="bi bi-check"></i>
+                    <h3>Crop Classification</h3>
+                  </div>
+                </div>
+                <!-- End Feature Item -->
+
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                  <div class="feature-box d-flex align-items-center">
+                    <i class="bi bi-check"></i>
+                    <h3>Soil Characteristics Analysi</h3>
+                  </div>
+                </div>
+                <!-- End Feature Item -->
+
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                  <div class="feature-box d-flex align-items-center">
+                    <i class="bi bi-check"></i>
+                    <h3>Comprehensive Data Integration</h3>
+                  </div>
+                </div>
+                <!-- End Feature Item -->
+
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="600">
+                  <div class="feature-box d-flex align-items-center">
+                    <i class="bi bi-check"></i>
+                    <h3>User-Friendly Interface</h3>
+                  </div>
+                </div>
+                <!-- End Feature Item -->
+
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="700">
+                  <div class="feature-box d-flex align-items-center">
+                    <i class="bi bi-check"></i>
+                    <h3>Boosting Agricultural Productivity</h3>
+                  </div>
+                </div>
+                <!-- End Feature Item -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Features Section -->
+
+      <!-- Services Section -->
+
+      <!-- Testimonials Section -->
+      <section id="team" class="team section">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <p>Our Supervisor</p>
+        </div>
+        <!-- End Section Title -->
+
+        <div class="container d-flex justify-content-center align-items-center">
+          <div
+            class="col-lg-3 col-md-6 d-flex align-items-stretch"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="team-member">
+              <div class="member-img">
+                <img
+                  src="assets/img/team/mourad.jpeg"
+                  class="img-fluid"
+                  alt=""
+                />
+                <div class="social">
+                  <a href="https://orcid.org/0000-0003-3268-8084">
+                    <i class="fa-brands fa-orcid" title="orcid"></i>
+                  </a>
+                  <a
+                    href="https://scholar.google.com.eg/citations?user=Q0ZSxAIAAAAJ"
+                    ><i class="fa-brands fa-google-scholar" title="scholar"></i
+                  ></a>
+                  <a
+                    href="https://www.scopus.com/authid/detail.uri?authorId=57193563368"
+                  >
+                    <i
+                      ><img
+                        class="img-icon"
+                        src="./assets/img/team/scopus.jpeg"
+                        title="scopus"
+                        alt="" /></i
+                  ></a>
+                  <a
+                    href="https://www.webofscience.com/wos/author/record/3791986"
+                  >
+                    <i
+                      ><img
+                        class="img-icon"
+                        src="./assets/img/team/web_of_science.png"
+                        title="web of science"
+                        alt="" /></i
+                  ></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Dr. M. Mourad Mabrook</h4>
+                <span
+                  >AI & Communication Engineer | <br />
+                  Associate Professor
+                </span>
+                <p>
+                  Ph.D. in Communication Engineering | Expert in Wireless
+                  Communications, 5G/6G Networks, Cognitive Radio, AI, and
+                  Sensors
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Testimonials Section -->
+
+      <!-- Team Section -->
+      <section id="team" class="team section">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Team</h2>
+          <p>Our hard working team</p>
+        </div>
+        <!-- End Section Title -->
+
+        <div class="container">
+          <div class="row gy-4">
+            <div
+              class="col-lg-3 col-md-6 d-flex align-items-stretch"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="team-member">
+                <div class="member-img">
+                  <img
+                    src="assets/img/team/karim.jpeg"
+                    class="img-fluid"
+                    alt=""
+                  />
+                  <div class="social">
+                    <a
+                      href="https://www.linkedin.com/in/karim-ali-2209151b6/?originalSubdomain=eg"
+                      ><i class="bi bi-linkedin" title="Linkedin"></i
+                    ></a>
+                    <a href="https://github.com/karimali205"
+                      ><i class="bi bi-github" title="GitHub"></i
+                    ></a>
+                    <a
+                      href="https://www.facebook.com/profile.php?id=100028258057889&mibextid=kFxxJD"
+                      ><i class="bi bi-facebook" title="Facebook"></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>Karim Ali</h4>
+                  <span>AI Developer | M.L & D.L Engineer </span>
+                  <p>
+                    Developed a Long Short-Term Memory (LSTM) Model For
+                    Predicting Temperature, Humidity, and Wind Speed In Time
+                    Series Analysis.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- End Team Member -->
+
+            <div
+              class="col-lg-3 col-md-6 d-flex align-items-stretch"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="team-member">
+                <div class="member-img">
+                  <img
+                    src="assets/img/team/bahaa.jpg"
+                    class="img-fluid"
+                    alt=""
+                  />
+                  <div class="social">
+                    <a
+                      href="https://www.linkedin.com/in/bahaa-abdelkhalik-406b45245?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                      ><i class="bi bi-linkedin" title="Linkedin"></i
+                    ></a>
+                    <a
+                      href="https://www.facebook.com/bahaa.abdelkalek?mibextid=ZbWKwL"
+                      ><i class="bi bi-facebook" title="Facebook"></i
+                    ></a>
+                    <a
+                      href="https://www.instagram.com/bahaa___20?igsh=MXd6MmwxOWdraHJrdA=="
+                      ><i class="bi bi-instagram" title="Instagram"></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>Bahaa Abdelkhalik</h4>
+                  <span>MERN stack developer</span>
+                  <p>
+                    Developed many websites using MERN stack like ToDo App,
+                    E-COMMERCE App, and Our graduation website's backend using
+                    Node js
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- End Team Member -->
+
+            <div
+              class="col-lg-3 col-md-6 d-flex align-items-stretch"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div class="team-member">
+                <div class="member-img">
+                  <img
+                    src="assets/img/team/abdo.png"
+                    class="img-fluid"
+                    alt=""
+                  />
+                  <div class="social">
+                    <a href="https://www.linkedin.com/in/abdulrahmanfa2hy/"
+                      ><i class="bi bi-linkedin" title="Linkedin"></i
+                    ></a>
+                    <a href="https://github.com/AbdulrahmanFa2hy"
+                      ><i class="bi bi-github" title="GitHub"></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>Abdulrahman Fathy</h4>
+                  <span>Front-End Developer</span>
+                  <p>
+                    motivated Front-end Developer who never stop learning, ready
+                    for challenging and learning more
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- End Team Member -->
+
+            <div
+              class="col-lg-3 col-md-6 d-flex align-items-stretch"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <div class="team-member">
+                <div class="member-img">
+                  <img
+                    src="assets/img/team/mahmoud.png"
+                    class="img-fluid"
+                    alt=""
+                  />
+                  <div class="social">
+                    <a
+                      href="https://www.linkedin.com/in/mahmoud-aatef-4563a6204?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                      ><i class="bi bi-linkedin" title="Linkedin"></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>Mahmoud Aatef</h4>
+                  <span>ML developer</span>
+                  <p>
+                    develop an AI model using machine learning to predict the
+                    amount of clay, silt and sand in the agricultural soil.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- End Team Member -->
+            <div
+              class="col-lg-3 col-md-6 d-flex align-items-stretch"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <div class="team-member">
+                <div class="member-img">
+                  <img
+                    src="assets/img/team/undraw_Female_avatar_efig.png"
+                    class="img-fluid"
+                    alt=""
+                  />
+                  <div class="social">
+                    <a
+                      href="https://www.linkedin.com/in/norhan-ali-90894a314/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                      ><i class="bi bi-linkedin" title="Linkedin"></i
+                    ></a>
+                    <a
+                      href="https://www.facebook.com/profile.php?id=100058025016506"
+                      ><i class="bi bi-facebook" title="Facebook"></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>Norhan Ali</h4>
+                  <span>M.L Engineer</span>
+                  <p>
+                    Evaluated various models in the project by meticulously
+                    developing and independently verifying each model's
+                    efficiency.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- End Team Member -->
+            <div
+              class="col-lg-3 col-md-6 d-flex align-items-stretch"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <div class="team-member">
+                <div class="member-img">
+                  <img
+                    src="assets/img/team/mohamed.jpeg"
+                    class="img-fluid"
+                    alt=""
+                  />
+                  <div class="social">
+                    <a
+                      href="https://www.facebook.com/profile.php?id=100003260524128"
+                      ><i class="bi bi-facebook" title="Facebook"></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>Mohamed Fadel</h4>
+                  <span>M.L & D.L Engineer</span>
+                  <p>
+                    Creating deep learning model to detect wheat and rice using
+                    sentinel's 1&2 images
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- End Team Member -->
+            <div
+              class="col-lg-3 col-md-6 d-flex align-items-stretch"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <div class="team-member">
+                <div class="member-img">
+                  <img
+                    src="assets/img/team/mustafa.jpeg"
+                    class="img-fluid"
+                    alt=""
+                  />
+                  <div class="social">
+                    <a
+                      href="https://www.facebook.com/profile.php?id=100076095687257&mibextid=ZbWKwL"
+                      ><i class="bi bi-linkedin" title="Linkedin"></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>Mustafa mohamed</h4>
+                  <span>Data analyst and ML Engineer</span>
+                  <p>
+                    Using machine learning techniques to make model to predic
+                    amount of sand and clay in soil land that help us in
+                    improving agriculture
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- End Team Member -->
+            <div
+              class="col-lg-3 col-md-6 d-flex align-items-stretch"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <div class="team-member">
+                <div class="member-img">
+                  <img
+                    src="assets/img/team/undraw_Female_avatar_efig.png"
+                    class="img-fluid"
+                    alt=""
+                  />
+                  <div class="social">
+                    <a
+                      href="https://www.linkedin.com/in/sarah-medhat-03556b217?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                      ><i class="bi bi-linkedin" title="Linkedin"></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>Sarah Medhat</h4>
+                  <span>Image Processing Specialist</span>
+                  <p>
+                    I managed Sentinel-1 and Sentinel-2 image processing to
+                    refine deep learning models for wheat and rice crop
+                    detection. This included extensive data preprocessing, image
+                    augmentation, and parameter optimization.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Team Section -->
+
+      <!-- About Section -->
+      <section id="about" class="about section">
+        <div class="container" data-aos="fade-up">
+          <div class="row gx-0">
+            <div
+              class="col-lg-6 d-flex flex-column justify-content-center"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="content">
+                <h3>Who We Are</h3>
+                <h2>
+                  We are innovators enhancing AI models to address climate
+                  change and boost agricultural yields.
+                </h2>
+                <p>
+                  Our focus is on developing advanced machine learning models
+                  that optimize resource utilization by predicting climate
+                  patterns, classifying crops, and assessing soil
+                  characteristics. By integrating this comprehensive data, we
+                  provide critical insights to improve agricultural efficiency,
+                  supporting food security and economic development in Egypt.
+                </p>
+                <div class="text-center text-lg-start">
+                  <a
+                    href="#services"
+                    class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center"
+                  >
+                    <span>Check Our Services</span>
+                    <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="col-lg-6 d-flex align-items-center"
+              data-aos="zoom-out"
+              data-aos-delay="200"
+            >
+              <img
+                src="assets/img/undraw_World_re_768g.png"
+                class="img-fluid"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /About Section -->
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact section">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Contact</h2>
+          <p>Contact Us</p>
+        </div>
+        <!-- End Section Title -->
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <div class="row gy-4">
+            <div class="col-lg-3">
+              <div class="col">
+                <div class="row-md-3 mb-3">
+                  <div class="info-item" data-aos="fade" data-aos-delay="200">
+                    <i class="bi bi-geo-alt"></i>
+                    <h3>Address</h3>
+                    Faculty of Navigation Scince<br />and Space Technology,
+                    (NSST)
+                    <p>Egypt, Beni Suef</p>
+                  </div>
+                </div>
+                <!-- End Info Item -->
+
+                <div class="row-md-3">
+                  <div class="info-item" data-aos="fade" data-aos-delay="225">
+                    <i class="bi bi-telephone"></i>
+                    <h3>Call Us</h3>
+                    <p>+20 1158371316</p>
+                    <p>+20 1033722579</p>
+                  </div>
+                </div>
+                <!-- End Info Item -->
+              </div>
+            </div>
+
+            <div class="col-lg-9">
+              <form
+                class="php-email-form"
+                data-aos="fade-up"
+                data-aos-delay="200"
+                onsubmit="sendEmail(event)"
+              >
+                <div class="row gy-4">
+                  <div class="col-md-6">
+                    <input
+                      type="text"
+                      name="name"
+                      class="form-control"
+                      placeholder="Your Name"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-md-6">
+                    <input
+                      type="email"
+                      class="form-control"
+                      name="email"
+                      placeholder="Your Email"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-md-12">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="subject"
+                      placeholder="Subject"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-md-12">
+                    <textarea
+                      class="form-control"
+                      name="message"
+                      rows="6"
+                      placeholder="Message"
+                      required
+                    ></textarea>
+                  </div>
+
+                  <div class="col-md-12 text-center">
+                    <button type="submit">Send Message</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!-- End Contact Form -->
+          </div>
+        </div>
+      </section>
+      <!-- /Contact Section -->
+    </main>
+
+    <footer id="footer" class="footer">
+      <div
+        class="container copyright text-center mt-4 d-flex justify-content-center"
+      >
+        <p>
+          © <span>Copyright</span>
+          <strong class="px-1 sitename">ReSense AI</strong>
+          <span>All Rights Reserved</span>
+        </p>
+        <img
+          src="./assets/img/flag.gif"
+          alt="palestine-flag"
+          class="ms-2"
+          style="height: 22px; width: 45px"
+          title="Free Palestine"
+        />
+      </div>
+    </footer>
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div> -->
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

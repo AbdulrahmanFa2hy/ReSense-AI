@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>ReSense Ai</title>
+    <meta
+      content="Boosting Egypt's agricultural productivity with advanced AI for climate prediction, crop classification, and soil Characteristics analysis."
+      name="description"
+    />
+    <meta
+      content="climate prediction, crop classification, soil Characteristics"
+      name="keywords"
+    />
+    <meta
+      property="og:image"
+      content="https://resenseai.netlify.app/assets/img/logo.png"
+    />
+    <meta property="og:url" content="https://resenseai.netlify.app" />
+    <meta property="og:title" content="ReSense AI" />
+    <meta
+      property="og:description"
+      content="Boosting Egypt's agricultural productivity with advanced AI for climate prediction, crop classification, and soil Characteristics analysis."
+    />
+    <meta property="og:type" content="website" />
+    <!-- Favicons -->
+    <link href="assets/img/logo.png" rel="icon" />
+    <link href="assets/img/logo.png" rel="apple-touch-icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet" />
+
+    <!-- leaflet -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+      .container {
+        padding-top: 50px;
+        padding-bottom: 20px;
+      }
+      #map {
+        width: 100%;
+        height: 85vh;
+        margin: auto;
+        border-radius: 4px;
+        box-shadow: 0px 0px 16px #012970;
+        z-index: 1;
+      }
+      #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 50px auto 0;
+        max-width: 80%;
+      }
+      .attention {
+        text-align: justify;
+      }
+      #form {
+        width: 50%;
+        margin-bottom: 20px;
+      }
+      #form label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      #form input,
+      #form select {
+        margin-bottom: 10px;
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .phone-row {
+        display: flex;
+        gap: 10px;
+      }
+      #countryCode {
+        flex: 1;
+      }
+      #phone {
+        flex: 3;
+      }
+      #buttons {
+        width: 50%;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        gap: 10px;
+      }
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .email-button {
+        background: linear-gradient(135deg, #1e90ff, #6495ed);
+        color: white;
+      }
+      .whatsapp-button {
+        background-color: #25d366;
+        color: white;
+      }
+      .button img {
+        margin-right: 10px;
+      }
+      @media (max-width: 768px) {
+        #form,
+        #buttons {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="blog-page">
+    <header id="header" class="header d-flex align-items-center sticky-top">
+      <div
+        class="container-fluid container-xl position-relative d-flex align-items-center"
+      >
+        <a href="index.html" class="logo d-flex align-items-center me-auto">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <div class="d-flex align-items-center">
+            <img src="assets/img/logo.png" alt="" />
+            <h1 class="sitename" style="text-wrap: nowrap">ReSense AI</h1>
+          </div>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li>
+              <a href="index.html">Home<br /></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="index.html#services"
+                id="navbarDropdown"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Services
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="climate-change.html"
+                  >Climate Change</a
+                >
+                <a class="dropdown-item" href="soil-characteristic.html"
+                  >Soil Characteristics</a
+                >
+                <a class="dropdown-item" href="crop-classification.html"
+                  >Crop Classification</a
+                >
+              </div>
+            </li>
+            <li><a href="index.html#team">Team</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <a class="btn-getstarted flex-md-shrink-0" href="index.html#services"
+          >Get Started</a
+        >
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- Page Title -->
+      <div class="page-title">
+        <div class="heading">
+          <div class="container">
+            <div class="row d-flex justify-content-center text-center">
+              <div class="col-lg-8">
+                <h1>Crop Classification</h1>
+
+                <div class="issue">
+                  <h4>Issue</h4>
+                  <ul>
+                    <li>
+                      Accurate classification and monitoring of crops are
+                      essential for efficient agricultural planning and
+                      management
+                    </li>
+                  </ul>
+                  <h4>Solution</h4>
+                  <ul>
+                    <li>
+                      <h6>Approach:</h6>
+                      Develop AI models to classify different crop types and
+                      monitor their growth stages.
+                    </li>
+
+                    <li>
+                      <h6>Method:</h6>
+                      Utilize remote sensing data and machine learning
+                      algorithms to analyze spectral signatures and temporal
+                      patterns of crops. Implement multispectral and
+                      hyperspectral imaging to differentiate between various
+                      crop species and identify growth stages.
+                    </li>
+                    <li>
+                      <h6>Outcome:</h6>
+                      Enable precise crop classification and monitoring,
+                      assisting farmers in making informed decisions about
+                      planting, irrigation, and harvesting, ultimately enhancing
+                      crop productivity and resource management.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav class="breadcrumbs">
+          <div class="container">
+            <ol>
+              <li><a href="index.html">Home</a></li>
+              <li class="current">Crop Classification</li>
+            </ol>
+          </div>
+        </nav>
+      </div>
+      <!-- End Page Title -->
+
+      <div class="container">
+        <div id="map"></div>
+        <div id="container">
+          <form id="form">
+            <label for="email">Your Email:</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your email"
+              required
+            />
+            <div class="phone-row">
+              <select id="countryCode">
+                <!-- Country options will be populated here by JavaScript -->
+              </select>
+              <input
+                type="tel"
+                id="phone"
+                placeholder="Enter your phone number"
+                required
+              />
+            </div>
+            <label for="crop">Crop Type:</label>
+            <select id="crop">
+              <option value="Wheat">Wheat</option>
+              <option value="Rice">Rice</option>
+              <option value="Cotton">Cotton</option>
+            </select>
+            <p class="attention">
+              Please ensure that you fill out the input fields correctly, as the
+              response will be sent to you using the provided email and phone
+              number.
+            </p>
+          </form>
+          <div id="buttons">
+            <button id="sendEmail" class="button email-button">
+              <i class="bi bi-envelope" style="margin-right: 10px"></i>
+              Send Request via Email
+            </button>
+            <button
+              id="sendWhatsApp"
+              class="button whatsapp-button"
+              target="_blank"
+            >
+              <i class="bi bi-whatsapp" style="margin-right: 10px"></i>
+              Send Request via WhatsApp
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div
+        class="container copyright text-center mt-4 d-flex justify-content-center"
+      >
+        <p>
+          © <span>Copyright</span>
+          <strong class="px-1 sitename">ReSense AI</strong>
+          <span>All Rights Reserved</span>
+        </p>
+        <img
+          src="./assets/img/flag.gif"
+          alt="palestine-flag"
+          class="ms-2"
+          style="height: 22px; width: 45px"
+          title="Free Palestine"
+        />
+      </div>
+    </footer>
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <script type="module" src="./assets/js/crop-classificatoin.js"></script>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <script type="module" src="./assets/js/crop-classificatoin.js"></script>
+    <!-- prettier-ignore -->
+    <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+      ({key: "AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg", v: "weekly"});</script>
+  </body>
+</html>
